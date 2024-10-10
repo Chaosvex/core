@@ -973,8 +973,8 @@ void BattleGroundMgr::Update(uint32 diff)
             //create mutex
             //ACE_Guard<ACE_Thread_Mutex> guard(schedulerLock);
             //copy vector and clear the other
-            scheduled = std::vector<uint32>(m_queueUpdateScheduler);
-            m_queueUpdateScheduler.clear();
+            scheduled = std::move(m_queueUpdateScheduler);
+            m_queueUpdateScheduler.clear(); // resets moved-from vector to known state
             //release lock
         }
 

@@ -65,10 +65,10 @@ void AuthCrypt::EncryptSend(uint8* data, size_t len)
     }
 }
 
-void AuthCrypt::SetKey(std::vector<uint8> const& key)
+void AuthCrypt::SetKey(std::vector<uint8> key)
 {
     //MANGOS_ASSERT(key.size());
-    _key = key;
+    _key = std::move(key);
     if (_key.empty())
         _key.resize(1); // temp
 }

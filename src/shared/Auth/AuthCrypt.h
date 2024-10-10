@@ -41,7 +41,7 @@ class AuthCrypt
 
         void Init();
 
-        void SetKey(std::vector<uint8> const& key);
+        void SetKey(std::vector<uint8> key);
         void SetKey(uint8* key, size_t len);
 
         void DecryptRecv(uint8*, size_t);
